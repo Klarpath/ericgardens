@@ -328,11 +328,16 @@ Header Style
 }
 
 .sub-header ul.social-links {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
+  height: 100%;
 }
 
 .sub-header ul.social-links li {
-  margin-left: 8px;
+  margin-left: 0;
 }
 
 .sub-header ul.social-links li a {
