@@ -190,8 +190,17 @@ a, button {
     font-size: 9px;
     letter-spacing: 0.2px;
   }
-  .main-nav .nav {
-    display: none;
+  .header-area .main-nav .nav {
+    display: none !important;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .header-area .main-nav .nav.is-open {
+    display: flex !important;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   input, textarea, select {

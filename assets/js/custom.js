@@ -74,13 +74,29 @@
 	}
 
 
+var $mobileNav = $('.header-area .nav');
+	function setMobileNavState() {
+		if ($(window).width() <= 767) {
+			$mobileNav.removeClass('is-open').stop(true, true).slideUp(0);
+			$('.menu-trigger').removeClass('active');
+		} else {
+			$mobileNav.removeClass('is-open').stop(true, true).slideDown(0);
+			$('.menu-trigger').removeClass('active');
+		}
+	}
+
+	$(window).on('load resize', setMobileNavState);
+
 	// Menu Dropdown Toggle
 	if($('.menu-trigger').length){
-		$(".menu-trigger").on('click', function() {	
-			$(this).toggleClass('active');
-			$('.header-area .nav').slideToggle(200);
-		});
-	}
+		$(".menu-trigger").on('click', function() {
+			if ($(window).width() <= 767) {
+				$(this).toggleClass('active');
+				if ($mobileNav.hasClass('is-open')) {
+					$mobileNav.removeClass('is-open').stop(true, true).slideUp(200);
+				} else {
+					$mobileNav.addClass('is-open').stop(true, true).slideDown(200);
+				}
 
 
 	// Menu elevator animation
