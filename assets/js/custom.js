@@ -3,11 +3,12 @@
 	"use strict";
 
 	// Page loading animation
-	$(window).on('load', function() {
+	function hidePreloader() {
+		$('#js-preloader').addClass('loaded');
+	}
 
-        $('#js-preloader').addClass('loaded');
-
-    });
+	$(window).on('load', hidePreloader);
+	setTimeout(hidePreloader, 8000);
 
 
 	$(window).scroll(function() {
@@ -97,7 +98,9 @@ var $mobileNav = $('.header-area .nav');
 				} else {
 					$mobileNav.addClass('is-open').stop(true, true).slideDown(200);
 				}
-
+			}
+		});
+	}
 
 	// Menu elevator animation
 	$('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function() {
@@ -108,8 +111,8 @@ var $mobileNav = $('.header-area .nav');
 				var width = $(window).width();
 				if(width < 991) {
 					$('.menu-trigger').removeClass('active');
-					$('.header-area .nav').slideUp(200);	
-				}				
+					$('.header-area .nav').slideUp(200);
+				}
 				$('html,body').animate({
 					scrollTop: (target.offset().top) - 80
 				}, 700);
